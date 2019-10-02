@@ -6,7 +6,7 @@ bot = telebot.TeleBot("803669330:AAHhWsfqru8yUcDthHt_ZtiwctLDU0qwXxI")
 
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
-	observation = owm.weather_at_place( message.text )
+	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')["temp"]
 
@@ -22,4 +22,4 @@ def send_echo(message):
 
 	bot.send_message(message.chat.id, answer)
 
-bot.polling( none_stop = False )
+bot.polling(none_stop = True)
